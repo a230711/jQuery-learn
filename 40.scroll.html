@@ -6,21 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .box{
-            width: 100%;
-            height: 1500px;
-            background-color: yellow;
+        section{
+            height: 100vh;
+            width: 200vw;
+            font-size: 10rem;
         }
     </style>
 </head>
 <body>
-    <div class="box"></div>
+    <section class="autobg">1</section>
+    <section class="autobg">2</section>
+    <section class="autobg">3</section>
+    <section class="autobg">4</section>
+    <section class="autobg">5</section>
+    <section class="autobg">6</section>
+    <section class="autobg">7</section>
+    <section class="autobg">8</section>
+    <section class="autobg">9</section>
+    <section class="autobg">10</section>
+    <section class="autobg">11</section>
+    <section class="autobg">12</section>
     <script src="./JQuery/jquery-3.6.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
     <script>
-        $(window).scroll(function(){
-            console.log($(this).scrollTop());
-            console.log($(window).scrollLeft());
+     function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+    }
+    
+    function getRBGA() {
+        return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+    }
+    
+    const elements = document.querySelectorAll('.autobg');
+    
+    Array.from(elements).forEach((element, index) => {
+        element.style.backgroundImage = getRBGA();
+    });
+    
+    // $('.autobg').each(function (index, currentElement) {
+    //     currentElement.style.backgroundImage = getRBGA();
+    // });
+    </script>
+    <script>
+        // $(window).scroll(function(){
+        //     console.log('window scroll:',$(this).scrollTop());
+        //     console.log('window scrollLeft:',$(this).scrollLeft());
+        // })
+        $(window).resize(function(){
+            console.log('window width:', $(this).width());
+            console.log('window height:', $(this).height());
         })
     </script>
 </body>

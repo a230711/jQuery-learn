@@ -9,6 +9,7 @@
         body {
             margin: 0;
             height: 300vh;
+            transition: .5s;
         }
 
         .wrap {
@@ -43,6 +44,12 @@
             console.log(num);
             // cnosole.log($(window).scrollTop());
             $('.box').css('width', `${num}%`);
+
+            if(num > 50){
+                $('body').css('background','orange');
+            }else{
+                $('body').css('background','transparent');
+            }
         })
     </script>
 </body>
