@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img-wrap{
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid transparent;
+        }
+        .img-wrap>img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md">
+                <div class="img-wrap">
+                    <img src="./images/person1.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-md">
+                <div class="img-wrap">
+                    <img src="./images/person2.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-md">
+                <div class="img-wrap">
+                    <img src="./images/person3.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-md">
+                <div class="img-wrap">
+                    <img src="./images/person4.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-12 col-md">
+                <div class="img-wrap">
+                    <img src="./images/person5.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <script src="./JQuery/jquery-3.6.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        $('.img-wrap').click(function(){
+            console.log('.img-wrap, this:', $(this));
+
+
+        })
+    </script>
+</body>
+</html>

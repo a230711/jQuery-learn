@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <select name="" id="sel_01">
+            <option value="0">基隆</option>
+            <option value="1">台北</option>
+            <option value="2">新北</option>
+        </select>
+        <select name="" id="sel_02">
+            <option value="0">七堵</option>
+            <option value="1">中正</option>
+            <option value="2">暖暖</option>
+        </select>
+    </form>
+    <script src="./JQuery/jquery-3.6.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+        let districtArray = [
+            ['七堵', '中正', '暖暖'],
+            ['中正', '大安', '信義'],
+            ['蘆洲', '三重', '新店'],
+        ];
+        $('#sel_01').change(function(){
+            let changeval = $(this).val();
+            // console.log(districtArray[changeval]);
+
+            $('#sel_02 option').remove();
+
+            for(let i=0; i<districtArray[changeval].length; i++){
+                $('#sel_02').append(`<option value="${i}">${districtArray[changeval][i]}</option>`);
+                // console.log(districtArray[changeval][i]);
+            }
+
+            $('#sel_02').change(function(){                
+                let address = $(this).val();
+                console.log(districtArray[changeval][address]);
+            })
+        });
+        // console.log(address);
+        // $('#sel_02').append('<option value="0">ads</option>')
+
+        
+
+    </script>
+</body>
+</html>
