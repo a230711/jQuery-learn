@@ -24,6 +24,8 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
+                <button type="button" id="btnShowPass" class="btn btn-primary">Password Show</button>
+                <button type="button" id="btnAutoInput" class="btn btn-primary">Auto Input</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
@@ -37,8 +39,15 @@
     <script src="./JQuery/jquery-3.6.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
-        $().click(function(){
-            
+        $('#btnAutoInput').click(function(){
+            console.log('hi');
+
+            $('#exampleInputEmail1').val('aaa@gmail.com');
+            $('#exampleInputPassword1').val('123456');
+        })
+        $('#btnShowPass').click(function(){
+            console.log('hello');
+            $('#exampleInputPassword1').attr('type','text');
         })
     </script>
 </body>
