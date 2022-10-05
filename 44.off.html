@@ -13,16 +13,25 @@
     <script src="./JQuery/jquery-3.6.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
+        // const sayHi = function(){
+        //     console.log('hi');
+        // }
+
+        // $('#on').click(function(){
+        //     $('#sayHi').on('click',sayHi)
+        // })
+        // $('#off').click(function(){
+        //     console.log('off clicked');
+
+        //     $('#sayHi').off('click',sayHi)
+        // })
+
         const sayHi = function(){
             console.log('hi');
         }
-
-        $('#on').click(function(){
-            $('#sayHi').on('click',sayHi)
-        })
+        $('#sayHi').click(sayHi);
         $('#off').click(function(){
             console.log('off clicked');
-
             $('#sayHi').off('click',sayHi)
         })
 

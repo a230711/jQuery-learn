@@ -18,17 +18,17 @@
     <script src="./JQuery/jquery-3.6.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
-        $('.box').on({
-            click:function(){
-                console.log('click');
-            },
-            mouseenter:function(){
-                console.log('mouseenter');
-            },
-            mouseout:function(){
-                console.log('mouseout');
+        // $('.box').on({
+        //     "click mouseenter mouseleave":function(){
+        //         console.log("hi");
+        //     }
+        // })
+        $('.box').on(
+            'click mouseenter mouseleave',function(){
+                console.log('Hi');
             }
-        })
+        )
+        // 沒註解跟上面的都是一樣的，只是一個用on1一個用on2寫出on3
     </script>
 </body>
 </html>
