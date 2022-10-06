@@ -68,17 +68,21 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
-        let boxLeft = parseInt($('.box').css('left'));
+        const boxLeft = parseInt($('.box').css('left'));
         let index = 0;
         let myInterval = null;
         const seep = 10;
+        const maxLeft = $('.wrap').width() - $('.box').width();
+        const minLeft = 0;
 
-        function startInterval(cssname, direction){
+        function startInterval(cssname, direction, boxEdge, edge, compare){
             myInterval = setInterval(()=>{
-                const maxLeft = $('.wrap').width() - $('.box').width();
-                const minLeft = 0;
 
-                $('.box').css(cssname, direction+seep);
+                eval(`boxEdge ${direction} ${seep}`)
+                console.log(boxEdge);
+                if(eval(`boxEdge ${compare} edge`)){
+                    $('.box').css(cssname, boxEdge);
+                }
             }, 100);
         }
 
@@ -126,11 +130,19 @@
         }
 
         $('#btnRight').on({
-            'mousedown': ()=>startInterval('left','+='),
+            'mousedown': ()=>{
+                const boxLeft = parseInt($('.box').css('left'));
+                const maxLeft = $('.wrap').width() - $('.box').width();
+                startInterval('left','+=',boxLeft,maxLeft,'<=');
+            },
             'mouseup': stopInterval
         })
         $('#btnLeft').on({
-            'mousedown': ()=>startInterval('left','-='),
+            'mousedown': ()=>{
+                const boxLeft = parseInt($('.box').css('left'));
+                const minLeft = 0;
+                startInterval('left','-=',boxLeft,minLeft,'>=')
+            },
             'mouseup': stopInterval
         })
         $('#btnUp').on({
