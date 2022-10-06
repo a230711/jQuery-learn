@@ -45,7 +45,6 @@
         .box {
             width: 200px;
             height: 200px;
-
             background-color: #aaf;
         }
     </style>
@@ -58,27 +57,40 @@
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
         console.log('box width:', $('.box').css('width'));
-        console.log('box width + 100:', $('.box').css('width') + 100);
-        // console.log('box width:', $('.box').css('background-color'));
+        console.log('box width:', $('.box').css('background-color'));
 
-        $('.box').click(function () {
-            // if ($('.box').css('background-color') === "rgb(170, 170, 255)") {
-            //     $(this).css('background', 'lightpink')
-            // }
-            // else {
-            //     $(this).css('background', '#aaf')
-            // }
+        // $('.box').click(function () {
+        //     if ($('.box').css('background-color') === "rgb(170, 170, 255)") {
+        //         $(this).css('background', 'lightpink')
+        //     }
+        //     else {
+        //         $(this).css('background', '#aaf')
+        //     }
+        // })
 
-            // var style = {
-            //     color: "#fff",
-            //     background: "#000",
-            // };
+        // 優化版
+        // $('.box').click(function(){
+        // let bg = 'rgb(170, 170, 255)';
+        // if($(this).css('background-color')==="rgb(170, 170, 255)"){
+        //     bg = 'yellow';
+        // }
+        // $(this).css('background-color', bg);
+        // });
 
-            // $(this).css(style);
+        // 一次改多個樣式
+        // $('.box').click(function(){
+        //     var style = {
+        //         color: "#fff",
+        //         background: "#000"
+        //     };
+        //     $(this).css(style);
+        // })
 
-            $(this).css('width', '+=100')
-
+        $('.box').click(function(){
+            console.log(parseInt($(this).css('width')));
+            $(this).css('width','+=100');
         })
+
     </script>
 </body>
 
