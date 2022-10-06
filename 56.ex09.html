@@ -84,6 +84,18 @@
                 }
             }, 100);
         }
+        function startInterval2(){
+            myInterval = setInterval(()=>{
+                const minLeft = 0;
+                console.log('boxLeft',boxLeft);
+                boxLeft-=10;
+                if(boxLeft>=minLeft){
+                    $('.box').css('left', boxLeft);
+                }else{
+                    boxLeft = minLeft;
+                }
+            }, 100);
+        }
         function stopInterval(){
             clearInterval(myInterval);
         }
@@ -109,7 +121,12 @@
             'mouseup': stopInterval
         })
 
-        $('#btnLeft').click(moveLeft)
+        // $('#btnLeft').click(moveLeft)
+        $('#btnLeft').on({
+            // 'click': moveRight,
+            'mousedown': startInterval2,
+            'mouseup': stopInterval
+        })
 
         $(document).on('keydown', function(e){
             console.log('keydown:',e.keyCode);
