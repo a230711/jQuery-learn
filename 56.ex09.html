@@ -71,31 +71,41 @@
         let boxLeft = parseInt($('.box').css('left'));
         let index = 0;
         let myInterval = null;
+        const seep = 10;
 
-        function startInterval(){
+        function startInterval(cssname, direction){
             myInterval = setInterval(()=>{
                 const maxLeft = $('.wrap').width() - $('.box').width();
-                console.log('boxLeft',boxLeft);
-                boxLeft+=10;
-                if(boxLeft<=maxLeft){
-                    $('.box').css('left', boxLeft);
-                }else{
-                    boxLeft = maxLeft;
-                }
-            }, 100);
-        }
-        function startInterval2(){
-            myInterval = setInterval(()=>{
                 const minLeft = 0;
-                console.log('boxLeft',boxLeft);
-                boxLeft-=10;
-                if(boxLeft>=minLeft){
-                    $('.box').css('left', boxLeft);
-                }else{
-                    boxLeft = minLeft;
-                }
+
+                $('.box').css(cssname, direction+seep);
             }, 100);
         }
+
+        // function startInterval(){
+        //     myInterval = setInterval(()=>{
+        //         const maxLeft = $('.wrap').width() - $('.box').width();
+        //         console.log('boxLeft',boxLeft);
+        //         boxLeft+=10;
+        //         if(boxLeft<=maxLeft){
+        //             $('.box').css('left', boxLeft);
+        //         }else{
+        //             boxLeft = maxLeft;
+        //         }
+        //     }, 100);
+        // }
+        // function startInterval2(){
+        //     myInterval = setInterval(()=>{
+        //         const minLeft = 0;
+        //         console.log('boxLeft',boxLeft);
+        //         boxLeft-=10;
+        //         if(boxLeft>=minLeft){
+        //             $('.box').css('left', boxLeft);
+        //         }else{
+        //             boxLeft = minLeft;
+        //         }
+        //     }, 100);
+        // }
         function stopInterval(){
             clearInterval(myInterval);
         }
@@ -114,19 +124,32 @@
                 $('.box').css('left', boxLeft);
             } 
         }
-        // $('#btnRight').click(moveRight)
+
         $('#btnRight').on({
-            // 'click': moveRight,
-            'mousedown': startInterval,
+            'mousedown': ()=>startInterval('left','+='),
+            'mouseup': stopInterval
+        })
+        $('#btnLeft').on({
+            'mousedown': ()=>startInterval('left','-='),
+            'mouseup': stopInterval
+        })
+        $('#btnUp').on({
+            'mousedown': ()=>startInterval('top','-='),
+            'mouseup': stopInterval
+        })
+        $('#btnDown').on({
+            'mousedown': ()=>startInterval('top','+='),
             'mouseup': stopInterval
         })
 
-        // $('#btnLeft').click(moveLeft)
-        $('#btnLeft').on({
-            // 'click': moveRight,
-            'mousedown': startInterval2,
-            'mouseup': stopInterval
-        })
+        // $('#btnRight').on({
+        //     'mousedown': startInterval,
+        //     'mouseup': stopInterval
+        // })
+        // $('#btnLeft').on({
+        //     'mousedown': startInterval2,
+        //     'mouseup': stopInterval
+        // })
 
         $(document).on('keydown', function(e){
             console.log('keydown:',e.keyCode);
