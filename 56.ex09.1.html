@@ -28,7 +28,7 @@
             position: absolute;
             top: 0px;
             left: 0px;
-            /* transition: .5s; */
+            transition: .5s;
         }
     </style>
 </head>
@@ -68,16 +68,20 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script>
+        let boxLeft = parseInt($('.box').css('left'));
+
         function moveRight(){
             const maxLeft = $('.wrap').width() - $('.box').width();
             console.log('maxLeft:', maxLeft);
-            if(parseInt($('.box').css('left'))<maxLeft){
-                $('.box').css('left', '+=100');
+            if(boxLeft<maxLeft){
+                boxLeft += 100;
+                $('.box').css('left', boxLeft);
             } 
         }
         function moveLeft(){
-            if(0<parseInt($('.box').css('left'))){
-                $('.box').css('left', '-=100');
+            if(0<boxLeft){
+                boxLeft -=100;
+                $('.box').css('left', boxLeft);
             } 
         }
         $('#btnRight').click(moveRight)
