@@ -11,14 +11,17 @@
     />
 </head>
 <body>
-    <button>click</button>
+    <button data-anistr="bounce">Animation1</button>
+    <button data-anistr="rubberBand">Animation2</button>
     <h1 class="animate__animated">An animated element</h1>
+    <!-- animate__rubberBand -->
     <script src="./JQuery/jquery-3.6.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
         $('button').click(function(){
-            $('h1').addClass('animate__bounce').one('animationend',function(){
-                $(this).removeClass('animate__bounce');
+            const animate = $(this).data('anistr');
+            $('h1').addClass(`animate__${animate}`).one('animationend',function(){
+                $(this).removeClass(`animate__${animate}`);
             })
         })
     </script>
